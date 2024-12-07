@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+        <div class="protfolio-wrap">
+
+        <!-- Start Header Area -->
+      
+        <!-- End Header Area -->	
+            <!-- start banner Area -->
+            <section class="banner-area relative" id="home">	
+                <div class="overlay overlay-bg"></div>
+                <div class="container">
+                    <div class="row fullscreen d-flex align-items-center justify-content-center">
+                        <div class="banner-content col-lg-10">
+                            <h5 class="text-uppercase">Be the part of this Wonderful Journey</h5>
+                            <h1>
+                                Incredible India!				
+                            </h1>
+                            <a href="#" class="primary-btn text-uppercase">Explore Now</a>
+                        </div>											
+                    </div>
+                </div>
+            </section>
+            <!-- End banner Area -->	
+            
+            <!-- Start portfolio-area Area -->	
+            <section class="portfolio-area section-gap" id="portfolio">
+              <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content col-lg-10">
+                            <div class="title text-center">
+                                <h1 class="mb-10">You'll fall in love with India</h1>
+                                <p>Explore India from Kashmir to Kaniyakumari</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="filters">
+                  <ul>
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".corporate">North</li>
+                    <li data-filter=".personal">Central</li>
+                    <li data-filter=".agency">North-Eastern</li>
+                    <li data-filter=".portal">South</li>
+                  </ul>
+                </div>
+                
+                <div class="filters-content">
+                  <div class="row grid">
+                    <div class="single-portfolio col-sm-4 all corporate">
+                      <div class="item">
+                        <img src="{% static 'img/p1.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h4><a href="./Pages-inside/GoldenTemple-Info.html">Golden Temple</a></h4>
+                          <div class="cat">Punjab</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all personal">
+                      <div class="item">
+                        <img src="{% static 'img/p2.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h4>Gwalior Fort</h4>
+                          <div class="cat">Madhya Pradesh</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all agency">
+                      <div class="item">
+                        <img src="{% static 'img/p9.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h5>Twang</h5>
+                          <div class="cat">Arunachal Pradesh</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all portal">
+                      <div class="item">
+                        <img src="{% static 'img/p12.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h5>Alleppey</h5>
+                          <div class="cat">Kerala</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="single-portfolio col-sm-4 all corporate">
+                      <div class="item">
+                        <img src="{% static 'img/p5.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h4>Camel Safari</h4>
+                          <div class="cat">Rajasthan</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all personal">
+                      <div class="item">
+                        <img src="{% static 'img/p6.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h4>Sanchi Stupa</h4>
+                          <div class="cat">Madhya Pradesh</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="single-portfolio col-sm-4 all agency">
+                      <div class="item">
+                        <img src="{% static 'img/p7.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h5>Umngot river</h5>
+                          <div class="cat">Meghalaya</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all portal">
+                      <div class="item">
+                        <img src="{% static 'img/p10.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h5>Vivekananda Rock Memorial</h5>
+                          <div class="cat">Tamil Nadu</div>
+                        </div>
+                      </div>
+                    </div>		
+                    <div class="single-portfolio col-sm-4 all corporate">
+                      <div class="item">
+                        <img src="{% static 'img/p4.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h4>Mehrangarh Fort</h4>
+                          <div class="cat">Rajasthan</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all personal">
+                      <div class="item">
+                        <img src="{% static 'img/p3.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h4>Hampi</h4>
+                          <div class="cat">Karnataka</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all agency">
+                      <div class="item">
+                        <img src="{% static 'img/p8.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h5>Mon</h5>
+                          <div class="cat">Myanmar</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-portfolio col-sm-4 all portal">
+                      <div class="item">
+                        <img src="{% static 'img/p11.jpg' %}" alt="Work 1">
+                        <div class="p-inner">
+                          <h5>Colva Beach</h5>
+                          <div class="cat">Goa</div>
+                        </div>
+                      </div>
+                    </div>					        		         -->
+                    
+                  </div>
+                </div>
+                
+              </div>
+            </section>
+            <!-- End portfolio-area Area -->	
+            
+            <!-- Start review Area -->
+            <section class="review-area section-gap" id="testimonial">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content pb-60 col-lg-10">
+                            <div class="title text-center">
+                                <h1 class="mb-10">How Our Customers felt for Us</h1>
+                                <p>Who are in extreme love with friendly &amp; inviting people</p>
+                            </div>
+                        </div>
+                    </div>							
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="single-review">
+                                <img src="img/c1.png" alt="">
+                                <div class="title d-flex flex-row">
+                                    <a href="#"><h4>Fannie Rowe</h4></a>									
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </div>
+                                </div>
+                                <p>
+                                    It was a life Experience to visit such a beautiful cultural country.
+                                </p>
+                            </div>	
+                            <div class="single-review">
+                                <img src="img/c3.png" alt="">
+                                <div class="title d-flex flex-row">
+                                    <a href="#"><h4>Lillie Summers</h4></a>									
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </div>
+                                </div>
+                                <p>
+                                    Just one Word - Incredible!
+                                </p>
+                            </div>															
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="single-review">
+                                <img src="img/c2.png" alt="">
+                                <div class="title d-flex flex-row">
+                                    <a href="#"><h4>Bob Marley</h4></a>									
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-starchecked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </div>
+                                </div>
+                                <p>
+                                    Damm! I'm thinking of staying here in this World.
+                                </p>
+                            </div>	
+                            <div class="single-review">
+                                <img src="img/c4.png" alt="">
+                                <div class="title d-flex flex-row">
+                                    <a href="#"><h4>Jackie Chan</h4></a>									
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </div>
+                                </div>
+                                <p>
+                                    Now, I am big fan of Power Yoga. Thanks for such a gift to this world.
+                                </p>
+                            </div>															
+                        </div>							
+                    </div>
+                </div>	
+            </section>
+            <!-- End review Area -->
+                <!-- Travel Guide Start -->
+        <div class="container-fluid guide py-5">
+          <div class="container py-5">
+              <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                  <h5 class="section-title px-3">Travel Guide</h5>
+                  <h1 class="mb-0">Meet Our Guide</h1>
+              </div>
+              <div class="row g-4">
+                  <div class="col-md-6 col-lg-3">
+                      <div class="guide-item">
+                          <div class="guide-img">
+                              <div class="guide-img-efects">
+                                  <img src="{% static 'img/guide-1.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
+                              </div>
+                             
+                          </div>
+                          <div class="guide-title text-center rounded-bottom p-4">
+                              <div class="guide-title-inner">
+                                  <h4 class="mt-3">Full Name</h4>
+                                  <p class="mb-0">Designation</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                      <div class="guide-item">
+                          <div class="guide-img">
+                              <div class="guide-img-efects">
+                                  <img src="{% static 'img/guide-2.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
+                              </div>
+                              
+                          </div>
+                          <div class="guide-title text-center rounded-bottom p-4">
+                              <div class="guide-title-inner">
+                                  <h4 class="mt-3">Full Name</h4>
+                                  <p class="mb-0">Designation</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                      <div class="guide-item">
+                          <div class="guide-img">
+                              <div class="guide-img-efects">
+                                  <img src="{% static 'img/guide-3.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
+                              </div>
+                            
+                          </div>
+                          <div class="guide-title text-center rounded-bottom p-4">
+                              <div class="guide-title-inner">
+                                  <h4 class="mt-3">Full Name</h4>
+                                  <p class="mb-0">Designation</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                      <div class="guide-item">
+                          <div class="guide-img">
+                              <div class="guide-img-efects">
+                                  <img src="{% static 'img/guide-4.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
+                              </div>
+                          </div>
+                          <div class="guide-title text-center rounded-bottom p-4">
+                              <div class="guide-title-inner">
+                                  <h4 class="mt-3">Full Name</h4>
+                                  <p class="mb-0">Designation</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Travel Guide End -->
+
+            
+
+{%  endblock %}
