@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="portfolio-area section-gap" id="portfolio">
+    <div class="container">
+          <div class="row d-flex justify-content-center">
+              <div class="menu-content col-lg-10">
+                  <div class="title text-center">
+                      <h1 class="mb-10">You'll fall in love with India</h1>
+                      <p>Explore India from Kashmir to Kaniyakumari</p>
+                  </div>
+              </div>
+          </div>
+      
+     <div class="filters">
+        <ul>
+          <li class="active" ><a href="{% url 'store' %}">All</a></li> 
+          {% for category in links %}
+          <li class="active"><a  href='{{ category.get_url }}'>{{ category.category_name }}</a></li>
+           <!-- <li class="active" data-filter='{{ category.get_url }}'>{{ category.category_name }}</li> -->
+          {% endfor %}
+        </ul>
+      </div> 
+      
+      <div class="filters-content">
+        <div class="row grid">
+          {% for place in places %}
+          <div class="single-portfolio col-sm-3 all personal">
+            <div class="item">
+              <a href="{{ place.get_url }}">
+              <img src="{{ place.image.url }}" alt="Work 1">
+              </a>
+              <div class="p-inner">
+                <a href="{{ place.get_url }}">
+                <h4>{{ place.place_name}}</h4>
+                </a>
+                <div class="cat"><center>-----</center></div>
+                <!-- <a href="" class="btn btn-block btn-success"> Wishlist</a> -->
+              </div>
+            </div>
+         </div>                                 
+         {% endfor %} 
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <!-- End portfolio-area Area -->
+{% endblock %}

@@ -4,8 +4,7 @@ from .models import Place
 # Register your models here.
 
 class PlaceAdmin(admin.ModelAdmin):
+    list_display =('place_name', 'category', 'modified_date', 'is_available')
     prepopulated_fields ={'slug':('place_name',)}
-    list_display =('place_name', 'category', 'modified_date')
     
-
 admin.site.register(Place,PlaceAdmin)
