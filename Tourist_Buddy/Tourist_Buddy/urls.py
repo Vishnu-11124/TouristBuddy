@@ -18,10 +18,24 @@ from django.urls import path,include
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
+from users.models import Profile
+from users.views import UserProfile,follow
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
     path('store/',include('store.urls')),
-    path('wishlist/',include('wishlist.urls')),
+    path('post/', include('post.urls')),
+    path('post/user/', include('users.urls')),
+
+
+    path('post/<username>/',UserProfile,name='profile'),
+    # path('post/<username>/editprofile', EditProfile ,name='edit-profile'),
+    path('post/<username>/',UserProfile,name='post'),
+    path('post/<username>/follow/<option>/', follow, name='follow'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+# This is used for
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
