@@ -1,19 +1,37 @@
-from django.shortcuts import render,redirect,get_object_or_404
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from post.models import Post, Tag, Follow, Stream,Likes
-from post.forms import NewPostform
-
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+
+from post.models import Post, Tag, Follow, Stream, Likes
+from django.contrib.auth.models import User
+from post.forms import NewPostform
+from users.models import Profile
+from django.urls import resolve
+from django.core.paginator import Paginator
+
+from django.db.models import Q
 
 # Create your views here.
 def post(request):
     user = request.user
-    posts = Stream.objects.filter(user=user)
+    if request.user.is_authenticated:
+        try:
+            posts = Stream.objects.filter(user=user)
+        except user.DoesNotExist:
+            user=None
+    else:
+        user=None
     group_ids = []
     
-    for post in posts:
-        group_ids.append(post.post_id)
+    if request.user.is_authenticated:
+        try:
+            for post in posts:
+                group_ids.append(post.post_id)
+        except:
+            posts=None
+    else:
+        posts=None
         
     post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
     context = {
@@ -53,16 +71,28 @@ def NewPost(request):
     return render(request, 'post/newpost.html', context)
 
 # def PostDetail(request, post_id):
-#    # user = request.user
+#     # user = request.user
 #     post = get_object_or_404(Post, id=post_id)
-#   #  comments = Comment.objects.filter(post=post).order_by('-date')
+#     # comments = Comment.objects.filter(post=post).order_by('-date')
+
+#     # if request.method == "POST":
+#     #     form = CommentForm(request.POST)
+#     #     if form.is_valid():
+#     #         comment = form.save(commit=False)
+#     #         comment.post = post
+#     #         comment.user = request.user
+#     #         comment.save()
+#     #         return HttpResponseRedirect(reverse('post-details', args=[post.id]))
+#     # else:
+#     #     form = CommentForm()
 
 #     context = {
-#         'post': post
-        
+#         'post': post,
+#         # 'form': form,
+#         # 'comments': comments
 #     }
 
-    return render(request, 'post/postdetail.html', context)
+#     return render(request, 'post/postdetail.html', context)
 
 def Tags(request, tag_slug):
     tag = get_object_or_404(Tag, slug=tag_slug)
@@ -92,4 +122,4 @@ def like(request, post_id):
     post.likes = current_likes
     post.save()
     # return HttpResponseRedirect(reverse('post-details', args=[post_id]))
-    return HttpResponseRedirect(reverse('post-details', args=[post_id]))
+    return HttpResponseRedirect(reverse('post', args=[post_id]))

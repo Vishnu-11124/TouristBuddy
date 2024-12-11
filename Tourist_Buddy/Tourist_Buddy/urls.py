@@ -27,6 +27,7 @@ urlpatterns = [
     path('store/',include('store.urls')),
     path('post/', include('post.urls')),
     path('post/user/', include('users.urls')),
+    # path('post/user/', include('comment.urls')),
 
 
     path('post/<username>/',UserProfile,name='profile'),

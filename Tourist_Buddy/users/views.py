@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login
 from post.models import Post, Follow, Stream
 from django.contrib.auth.models import User
 from users.models import Profile
-from users.form import EditProfileForm
+from .forms import EditProfileForm, UserRegisterForm
 from django.urls import resolve
 # from comment.models import Comment
 
@@ -35,9 +35,9 @@ def UserProfile(request, username):
     
     
     # Profile Stats
-    # posts_count = Post.objects.filter(user=user).count()
-    # following_count = Follow.objects.filter(follower=user).count()
-    # followers_count = Follow.objects.filter(following=user).count()
+    posts_count = Post.objects.filter(user=user).count()
+    following_count = Follow.objects.filter(follower=user).count()
+    followers_count = Follow.objects.filter(following=user).count()
     # # count_comment = Comment.objects.filter(post=posts).count()
     follow_status = Follow.objects.filter(following=user, follower=request.user).exists()
 
@@ -50,9 +50,9 @@ def UserProfile(request, username):
         'posts_paginator':posts_paginator,
         'posts': posts,
         'profile':profile,
-        #  'posts_count':posts_count,
-        # 'following_count':following_count,
-        # 'followers_count':followers_count,
+        'posts_count':posts_count,
+        'following_count':following_count,
+        'followers_count':followers_count,
         # 'posts_paginator':posts_paginator,
         'follow_status':follow_status,
         # 'count_comment':count_comment,
@@ -103,3 +103,31 @@ def EditProfile(request):
         'form':form,
     }
     return render(request, 'post/editprofile.html', context)
+
+
+def register(request):
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            new_user = form.save(commit=False)
+            # Profile.get_or_create(user=request.user)
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account was created!!')
+
+            # Automatically Log In The User
+            # new_user = authenticate(username=form.cleaned_data['username'],
+            #                         password=form.cleaned_data['password1'],)
+            # login(request, new_user)
+            # return redirect('editprofile')
+            return redirect('post')
+            
+
+
+    elif request.user.is_authenticated:
+        return redirect('post')
+    else:
+        form = UserRegisterForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'sign-in.html', context)

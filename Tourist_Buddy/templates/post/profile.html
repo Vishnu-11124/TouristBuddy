@@ -44,8 +44,9 @@
 <br><br>
                         {% if request.user.is_authenticated and request.user == profile.user %}
                         <a style="text-decoration: none;" href="{% url 'edit-profile' %}" class="btn profile-edit-btn btn-success">Edit Profile</a>
-                        <a style="text-decoration: none;" href="{% url 'edit-profile' %}" class="btn profile-edit-btn btn-danger">Logout</a>
-                        <a style="text-decoration: none;" href="{% url 'post' %}" class="btn profile-edit-btn btn-success">Home</a>
+                        <a style="text-decoration: none;" href="{% url 'post' %}" class="btn profile-edit-btn btn-success">Home</a><br><br>
+                        <a style="text-decoration: none;" href="{% url 'sign-out' %}" class="btn profile-edit-btn btn-danger">Logout</a>      
+                        <a style="text-decoration: none;" href="{% url 'newpost' %}" class="btn profile-edit-btn btn-success">Post</a>
                         <!-- <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button> -->
 
                         
@@ -59,9 +60,9 @@
                             {% endif %}
                         {% endif %}
 
-                        {% if request.user.is_authenticated and request.user != profile.user %}
+                        <!-- {% if request.user.is_authenticated and request.user != profile.user %}
                                 <a href="" class="btn profile-edit-btn">Message</a> <br><br>
-                        {% endif %}
+                        {% endif %} -->
                         <br>
 
                     
